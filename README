@@ -1,0 +1,8 @@
+Ultimate Team TBC
+=================
+
+This is a web app created in the "Play Framework":http://www.playframework.org
+for the purpose of managing a team of Ultimate Frisby players.
+
+Goals of this app are to allow communication between team members, competition
+information, and ability to organise pick-up players when necessary.

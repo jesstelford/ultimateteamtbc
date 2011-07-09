@@ -1,0 +1,8 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+
+<form action="@{Application.login()}" method="GET">
+    <input type="hidden" name="cont" value="${params.get('cont')}" />
+    <input type="text" name="openid" /> 
+    <input type="submit" value="Login with OpenId" />
+</form>

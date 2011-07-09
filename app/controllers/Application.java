@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.data.validation.*;
+import play.modules.gae.*;
 
 import java.util.*;
 
@@ -14,22 +15,13 @@ public class Application extends Controller {
 
     public static void index() {
 
-/*
-        String thisURL = request.getRequestURI();
-        response.setContentType("text/html");
-        if (request.getUserPrincipal() != null) {
-            response.getWriter().println("<p>Hello, " +
-                                         request.getUserPrincipal().getName() +
-                                         "!  You can <a href=\"" +
-                                         userService.createLogoutURL(thisURL) +
-                                         "\">sign out</a>.</p>");
-        } else {
-            response.getWriter().println("<p>Please <a href=\"" +
-                                         userService.createLoginURL(thisURL) +
-                                         "\">sign in</a>.</p>");
+        String currentUser = "";
+
+        if(GAE.isLoggedIn()) {
+            currentUser = GAE.getUser().toString();
         }
-*/
-        render();
+
+        render(currentUser);
     }
 
     public static void sayHello(@Required String myName) {
@@ -40,21 +32,12 @@ public class Application extends Controller {
         render(myName);
     }
 
-    public static void openId(String continue, String openid) {
- 
-        if (openid.length() == 0) {
-            render(continue);
-        } else {
-            redirect(
-                userService.createLoginURL(
-                    continue,
-                    null,
-                    openid,
-                    new HashSet()
-                )
-            );
-        }
+    public static void login(String openid) {
+        GAE.login("Application.index", openid);
+    }
 
+    public static void logout() {
+        GAE.logout("Application.index");
     }
 
 }

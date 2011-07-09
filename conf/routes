@@ -4,7 +4,8 @@
 
 GET     /                                       Application.index
 GET     /hello                                  Application.sayHello
-GET     /_ah/login_required                     Application.openId
+GET     /login                                  Application.login
+GET     /logout                                 Application.logout
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

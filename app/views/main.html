@@ -11,7 +11,16 @@
         #{get 'moreScripts' /}
     </head>
     <body>
-        The hello world app.
+        The hello world app. 
+        #{if currentUser}
+        <div style="float:right;">Logged in as ${currentUser}! | <a href="@{Application.logout()}">Logout</a></div>
+        #{/if}
+        #{else}
+        <form style="float:right;" action="@{Application.login()}" method="GET">
+            <input type="text" name="openid" /> 
+            <input type="submit" value="Login with OpenId" />
+        </form>
+        #{/else}
         <hr />
         #{doLayout /}
     </body>

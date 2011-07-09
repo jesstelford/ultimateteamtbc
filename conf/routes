@@ -3,9 +3,10 @@
 # ~~~~
 
 GET     /                                       Application.index
-GET     /hello                                  Application.sayHello
-GET     /login                                  Application.login
-GET     /logout                                 Application.logout
+GET     /hello/?                                Application.sayHello
+GET     /login/?                                Application.login
+GET     /logout/?                               Application.logout
+GET     /_ah/login                              Application.login
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

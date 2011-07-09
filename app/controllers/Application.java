@@ -13,16 +13,6 @@ import com.google.appengine.api.users.*;
 
 public class Application extends Controller {
 
-    private static final Map<String, String> openIdProviders;
-    static {
-        openIdProviders = new HashMap<String, String>();
-        openIdProviders.put("Google", "google.com/accounts/o8/id");
-        openIdProviders.put("Yahoo", "yahoo.com");
-        openIdProviders.put("MySpace", "myspace.com");
-        openIdProviders.put("AOL", "aol.com");
-        openIdProviders.put("MyOpenId.com", "myopenid.com");
-    }
-
     @Before
     static void setUser() {
         User user = GAE.getUser();
@@ -44,7 +34,7 @@ public class Application extends Controller {
         render(myName);
     }
 
-    public static void login(String cont, String openid) {
+    public static void login(String cont, String openid_identifier) {
 
         // return to this action once logged in
         if (GAE.isLoggedIn()) {
@@ -56,7 +46,7 @@ public class Application extends Controller {
         }
         
         // if federated login provided, log them in
-        if (openid != null) {
+        if (openid_identifier != null) {
 
             HashMap<String, Object> returnParams = new HashMap<String, Object>();
 
@@ -64,20 +54,15 @@ public class Application extends Controller {
                 returnParams.put("cont", cont);
             }
 
-            GAE.login("Application.login", returnParams, openid);
+            try {
+                GAE.login("Application.login", returnParams, openid_identifier);
+            } catch(IllegalArgumentException iae) {
+                flash.error(iae.toString());
+            }
 
         }
 
         render();
-/*
-        // default is to give options for logging in
-        for (String providerName : openIdProviders.keySet()) {
-            String providerUrl = openIdProviders.get(providerName);
-            String loginUrl = userService.createLoginURL(req
-                    .getRequestURI(), null, providerUrl, attributes);
-            out.println("[<a href=\"" + loginUrl + "\">" + providerName + "</a>] ");
-        }
-*/
     }
 
     public static void logout() {

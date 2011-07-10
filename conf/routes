@@ -12,6 +12,7 @@ GET /_ah/login              Application.login
 GET /robots.txt             Static.staticTxt(path:'/public/robots.txt')
 GET /humans.txt             Static.staticTxt(path:'/public/humans.txt')
 GET /favicon.png            Static.staticIco(path:'/public/images/favicon.png')
+GET /favicon.ico            Static.staticIco(path:'/public/images/favicon.ico')
 GET /apple-touch-icon.png   Static.staticIco(path:'/public/images/apple-touch-icon.png')
 GET /apple-touch-icon-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-precomposed.png')
 GET /apple-touch-icon-72x72-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-72x72-precomposed.png')

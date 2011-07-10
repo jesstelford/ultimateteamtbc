@@ -9,8 +9,14 @@ GET /logout/?               Application.logout
 GET /_ah/login              Application.login
 
 # Static files
-GET /favicon.png            Static.staticIco(path:'/public/images/favicon.png')
 GET /robots.txt             Static.staticTxt(path:'/public/robots.txt')
+GET /humans.txt             Static.staticTxt(path:'/public/humans.txt')
+GET /favicon.png            Static.staticIco(path:'/public/images/favicon.png')
+GET /apple-touch-icon.png   Static.staticIco(path:'/public/images/apple-touch-icon.png')
+GET /apple-touch-icon-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-precomposed.png')
+GET /apple-touch-icon-72x72-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-72x72-precomposed.png')
+GET /apple-touch-icon-57x57-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-57x57-precomposed.png')
+GET /apple-touch-icon-114x114-precomposed.png Static.staticIco(path:'/public/images/apple-touch-icon-114x114-precomposed.png')
 
 # Map static resources from the /app/public folder to the /public path
 GET /public/                staticDir:public

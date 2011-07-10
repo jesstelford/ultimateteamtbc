@@ -1,0 +1,15 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Developer: Jess Telford
+  Site: http://jes.st
+  Twitter: @jesstelford
+  Location: Sydney, Australia
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, HTML5Boilerplate (1.0)
+  Software: Java, Play! Framework (1.1)
+  Doctype: HTML5
+  IDE: Vim

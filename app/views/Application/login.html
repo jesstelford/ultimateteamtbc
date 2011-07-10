@@ -14,9 +14,6 @@
         $(document).ready(function() {
             openid.init('openid_identifier');
         });
-        $(document).ready(function() {
-            $(".nojs").hide();
-        });
     </script>
 #{/set}
 
@@ -42,7 +39,7 @@
 <!-- Simple OpenID Selector --> 
 <form style="float:left;" action="@{Application.login()}" method="GET" id="openid_form"> 
     <input type="hidden" name="cont" value="${params.get('cont')}" />
-    <div class="nojs">
+    <div class="noscript">
         <p>Do you already have an account with another big-name site? Enter their OpenID URL to <strong>log in</strong> with it here:</p> 
     </div>
     <div id="openid_choice"> 
@@ -53,7 +50,7 @@
         <input id="openid_identifier" name="openid_identifier" type="text" value="http://" /> 
         <input id="openid_submit" type="submit" value="Sign-In"/> 
     </div> 
-    <div class="nojs"> 
+    <div class="noscript"> 
         Examples include;
         <dl>
             <dt>Google</dt><dd>http://www.google.com/accounts/o8/id</dd>

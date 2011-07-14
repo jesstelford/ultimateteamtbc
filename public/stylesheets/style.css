@@ -167,7 +167,9 @@ a:hover { color: #036; }
  *
  * Author: 
  */
-
+footer {
+    clear:both;
+}
 
 
 

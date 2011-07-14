@@ -74,13 +74,10 @@ public class Application extends Controller {
 
     private static HashMap<String, Object> generateOpenIdReturnParamaters(String continueTo) {
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-
         if (isValidContinuation(continueTo)) {
             parameters.put("continueTo", continueTo);
         }
-
         return parameters;
-
     }
 
     private static void openIdLogin(HashMap<String, Object> paramaters, String openId) {

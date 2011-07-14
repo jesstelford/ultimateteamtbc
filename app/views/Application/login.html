@@ -38,7 +38,7 @@
 
 <!-- Simple OpenID Selector --> 
 <form style="float:left;" action="@{Application.login()}" method="GET" id="openid_form"> 
-    <input type="hidden" name="cont" value="${params.get('cont')}" />
+    <input type="hidden" name="continueTo" value="${params.get('continueTo')}" />
     <div class="noscript">
         <p>Do you already have an account with another big-name site? Enter their OpenID URL to <strong>log in</strong> with it here:</p> 
     </div>
